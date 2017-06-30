@@ -1,6 +1,15 @@
 #!/bin/bash
 # This should generate a list of domains 1-20 wrapped around a root "word"
 
+## Did you pull from online?
+if
+(whiptail --title "anudeeptest" --yesno "Did you git pull from github" 10 80) 
+then
+echo "GREAT!!!!"
+else
+exit
+fi
+
 ## variables
 REPONAME=anudeeptest
 REPODIR=/home/pi/"$REPONAME"/
