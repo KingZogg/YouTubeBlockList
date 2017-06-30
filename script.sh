@@ -30,13 +30,18 @@ do
 
 for i in {1..20}
 do
+echo "Processing $source"
+echo ""
 echo "r"$i"---sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
 echo "r"$i"---sn-"$source".googlevideo.com"
-
+echo ""
+echo ""
 ## Done with Loops
 done
 done
-echo "Script complete"
+
+HOWMANYLINES=$(echo -e "`wc -l $DOCTOSPITOUT | cut -d " " -f 1`")
+echo "New List Contains $HOWMANYLINES Domains."
 
 Pushlists?
 { if
