@@ -45,7 +45,7 @@ HOWMANYLINES=$(echo -e "`wc -l $DOCTOSPITOUT | cut -d " " -f 1`")
 echo "New List Contains $HOWMANYLINES Domains."
 
 ## Pushlists?
-{ if
+if
 (whiptail --title "anudeeptest" --yesno "Do you want to push list to github" 10 80) 
 then
 GITHUBUSERNAME=$(whiptail --inputbox "Github Username?" 10 80 "" 3>&1 1>&2 2>&3)
