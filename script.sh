@@ -5,7 +5,7 @@
 REPONAME=anudeeptest
 REPODIR=/home/pi/"$REPONAME"/
 REPOOWNER=deathbybandaid
-GITREPOSITORYURL="github.com/"REPOOWNER"/"REPONAME".git"
+GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
 ROOTSUBSLIST="$REPODIR"rootsubs.txt
 
