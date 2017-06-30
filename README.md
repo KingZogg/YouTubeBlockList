@@ -13,3 +13,8 @@ sudo nano /home/pi/anudeeptest/rootsubs.txt
 #### Step Three, run script
 
 sudo bash /home/pi/anudeeptest/script.sh
+
+
+### Future Runs
+
+sudo git -C /home/pi/anudeeptest/ pull
