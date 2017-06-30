@@ -17,6 +17,7 @@ REPOOWNER=deathbybandaid
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
 ROOTSUBSLIST="$REPODIR"rootsubs.txt
+TEMPFILE="$REPODIR"tempfile.temp
 
 ## whiptail required
 WHATITIS=whiptail
@@ -30,9 +31,31 @@ echo "Installing $WHATITIS"
 apt-get install -y $WHATPACKAGE
 fi
 
+## gawk required
+WHATITIS=gawk
+WHATPACKAGE=gawk
+if
+which $WHATITIS >/dev/null;
+then
+echo "$WHATITIS Already Installed"
+else
+echo "Installing $WHATITIS"
+apt-get install -y $WHATPACKAGE
+fi
+
 ## Remove old list
-rm $DOCTOSPITOUT
-touch $DOCTOSPITOUT
+CHECKME=$DOCTOSPITOUT
+if
+ls $CHECKME &> /dev/null;
+then
+rm $CHECKME
+else
+:
+fi
+
+## Sort and dedupe rootsubs list
+cat -s $ROOTSUBSLIST | sort -u | gawk '{if (++dup[$0] == 1) print $0;}' > $TEMPFILE
+mv $TEMPFILE $ROOTSUBSLIST
 
 for source in `cat $ROOTSUBSLIST`;
 do
@@ -44,6 +67,7 @@ for i in {1..20}
 do
 echo "r"$i"---sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
 echo "r"$i"---sn-"$source".googlevideo.com"
+
 ## Done with Loops
 done
 echo ""
