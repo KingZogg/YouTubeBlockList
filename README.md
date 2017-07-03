@@ -6,7 +6,7 @@ Blocking video ads is kind of like Whack-A-Mole. The domain names often change, 
 Also there's is no guarantee that this list will block 100% of the ads, however the results were promising.
 One should also note that the actual content is also delivered using similar domains, for example `rx---sn-gwpa-cags.googlevideo.com` Blocking this will prevent the video from playing!
 
-#### **Important Note:** YouTube seems to be caches ads, so please clean cache after adding or updating this list. 
+#### **Important Note:** YouTube seems to cache ads, so please clean cache after adding or updating this list. 
 
 # FAQs
 
