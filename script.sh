@@ -3,7 +3,7 @@
 
 ## Did you pull from online?
 if
-(whiptail --title "anudeeptest" --yesno "Did you git pull from github" 10 80) 
+(whiptail --title "youtubeadsblacklist" --yesno "Did you git pull from github?" 10 80) 
 then
 echo "GREAT!!!!"
 else
@@ -11,8 +11,8 @@ exit
 fi
 
 ## variables
-REPONAME=anudeeptest
-REPODIR=/home/pi/"$REPONAME"/
+REPONAME=youtubeadsblacklist
+REPODIR=/etc/"$REPONAME"/
 REPOOWNER=deathbybandaid
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
