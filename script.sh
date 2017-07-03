@@ -13,7 +13,7 @@ fi
 ## variables
 REPONAME=youtubeadsblacklist
 REPODIR=/etc/"$REPONAME"/
-REPOOWNER=deathbybandaid
+REPOOWNER=anudeepND
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
 ROOTSUBSLIST="$REPODIR"rootsubs.txt
