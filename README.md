@@ -4,7 +4,7 @@
 
 #### Step One
 
-sudo git clone https://github.com/anudeepND/youtubeadsblacklist.git /home/pi/anudeeptest/
+sudo git clone https://github.com/anudeepND/youtubeadsblacklist.git /etc/youtubeadsblacklist/
 
 #### Step Two, edit rootsubs
 
