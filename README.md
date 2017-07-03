@@ -4,17 +4,17 @@
 
 #### Step One
 
-sudo git clone https://github.com/deathbybandaid/anudeeptest.git /home/pi/anudeeptest/
+sudo git clone https://github.com/anudeepND/youtubeadsblacklist.git /home/pi/anudeeptest/
 
 #### Step Two, edit rootsubs
 
-sudo nano /home/pi/anudeeptest/rootsubs.txt
+sudo nano /etc/youtubeadsblacklist/rootsubs.txt
 
 #### Step Three, run script
 
-sudo bash /home/pi/anudeeptest/script.sh
+sudo bash /etc/youtubeadsblacklist/script.sh
 
 
 ### Future Runs
 
-sudo git -C /home/pi/anudeeptest/ pull
+sudo git -C /etc/youtubeadsblacklist/ pull
