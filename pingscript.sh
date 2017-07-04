@@ -81,15 +81,30 @@ do
 DOMAINONE=r"$i"---sn-"$source".googlevideo.com
 DOMAINTWO=r"$i".sn-"$source".googlevideo.com
 
-SOURCEIPFETCH=`ping -c 1 $source`
+SOURCEIPFETCH=`ping -c 1 $DOMAINONE`
 SOURCEIP=`echo $SOURCEIPFETCH`
 
 if
 [[ -n $SOURCEIP ]]
 then
-echo "$source is located at $SOURCEIP"
+echo "$DOMAINONE is located at $SOURCEIP"
 echo "Ping Test Was A Success!"
 echo "$DOMAINONE" | tee --append $DOCTOSPITOUT
+else
+:
+fi
+
+unset SOURCEIPFETCH
+unset SOURCEIP
+
+SOURCEIPFETCH=`ping -c 1 $DOMAINTWO`
+SOURCEIP=`echo $SOURCEIPFETCH`
+
+if
+[[ -n $SOURCEIP ]]
+then
+echo "$DOMAINTWO is located at $SOURCEIP"
+echo "Ping Test Was A Success!"
 echo "$DOMAINTWO" | tee --append $DOCTOSPITOUT
 else
 :
