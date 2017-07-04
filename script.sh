@@ -87,10 +87,10 @@ gawk 'NR==FNR{a[$0];next} !($0 in a)' $ROOTSUBSOLDLIST $ROOTSUBSLIST > $TEMPFILE
 rm $ROOTSUBSOLDLIST
 cp $ROOTSUBSLIST $ROOTSUBSOLDLIST
 
-for source in `cat $ROOTSUBSLIST`;
+for source in `cat $TEMPFILE`;
 do
 
-echo "Processing $TEMPFILE"
+echo "Processing $source"
 echo ""
 
 for i in {1..20}
