@@ -1,6 +1,10 @@
 #!/bin/bash
 # This should generate a list of domains 1-20 wrapped around a root "word"
 
+echo ""
+echo "____________________________________________________________________________"
+echo ""
+
 ## variables
 REPONAME=youtubeadsblacklist
 REPODIR=/etc/"$REPONAME"/
@@ -21,6 +25,7 @@ else
 echo "Installing $WHATITIS"
 apt-get install -y $WHATPACKAGE
 fi
+echo ""
 
 ## gawk required
 WHATITIS=gawk
@@ -33,6 +38,7 @@ else
 echo "Installing $WHATITIS"
 apt-get install -y $WHATPACKAGE
 fi
+echo ""
 
 echo "____________________________________________________________________________"
 echo ""
