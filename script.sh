@@ -34,6 +34,9 @@ echo "Installing $WHATITIS"
 apt-get install -y $WHATPACKAGE
 fi
 
+echo "____________________________________________________________________________"
+echo ""
+
 ## Did you pull from online?
 if
 (whiptail --title "$REPONAME" --yesno "Did you git pull from github?" 10 80) 
@@ -54,6 +57,9 @@ else
 exit
 fi
 fi
+
+echo "____________________________________________________________________________"
+echo ""
 
 ## Remove old list
 CHECKME=$DOCTOSPITOUT
@@ -100,7 +106,7 @@ fi
 
 ## Done with Loop
 done
-echo ""
+echo "____________________________________________________________________________"
 echo ""
 done
 
