@@ -93,8 +93,14 @@ cat -s $ROOTSUBSLIST | sort -u | gawk '{if (++dup[$0] == 1) print $0;}' > $TEMPF
 mv $TEMPFILE $ROOTSUBSLIST
 
 ## Let's skip the ones we've already handled
+if
+ls $ROOTSUBSOLDLIST &> /dev/null;
+then
 gawk 'NR==FNR{a[$0];next} !($0 in a)' $ROOTSUBSOLDLIST $ROOTSUBSLIST > $TEMPFILE
 rm $ROOTSUBSOLDLIST
+else
+cp $ROOTSUBSLIST $TEMPFILE
+fi
 cp $ROOTSUBSLIST $ROOTSUBSOLDLIST
 
 for source in `cat $TEMPFILE`;
