@@ -1,15 +1,6 @@
 #!/bin/bash
 # This should generate a list of domains 1-20 wrapped around a root "word"
 
-## Did you pull from online?
-if
-(whiptail --title "youtubeadsblacklist" --yesno "Did you git pull from github?" 10 80) 
-then
-echo "GREAT!!!!"
-else
-exit
-fi
-
 ## variables
 REPONAME=youtubeadsblacklist
 REPODIR=/etc/"$REPONAME"/
@@ -43,6 +34,27 @@ echo "Installing $WHATITIS"
 apt-get install -y $WHATPACKAGE
 fi
 
+## Did you pull from online?
+if
+(whiptail --title "$REPONAME" --yesno "Did you git pull from github?" 10 80) 
+then
+echo "GREAT!!!!"
+else
+DIDWEPULL=true
+fi
+
+if
+[[ -n $DIDWEPULL ]]
+then
+if
+(whiptail --title "$REPONAME" --yesno "Would you like to attempt git pull now?" 10 80) 
+then
+git -C $REPODIR pull
+else
+exit
+fi
+fi
+
 ## Remove old list
 CHECKME=$DOCTOSPITOUT
 if
@@ -65,10 +77,13 @@ echo ""
 
 for i in {1..20}
 do
-echo "r"$i"---sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
-echo "r"$i"---sn-"$source".googlevideo.com"
-echo "r"$i".sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
-echo "r"$i".sn-"$source".googlevideo.com"
+echo "r"$i"---sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT
+echo "r"$i".sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT
+
+#echo "r"$i"---sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
+#echo "r"$i"---sn-"$source".googlevideo.com"
+#echo "r"$i".sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
+#echo "r"$i".sn-"$source".googlevideo.com"
 
 ## Done with Loops
 done
