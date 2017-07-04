@@ -94,17 +94,19 @@ DOMAINONE=r"$i"---sn-"$source".googlevideo.com
 DOMAINTWO=r"$i".sn-"$source".googlevideo.com
 
 SOURCEIPFETCHONE=`ping -c 1 $DOMAINONE | gawk -F'[()]' '/PING/{print $2}'`
+SOURCEIPONE=`echo $SOURCEIPFETCHONE`
 SOURCEIPFETCHTWO=`ping -c 1 $DOMAINTWO | gawk -F'[()]' '/PING/{print $2}'`
+SOURCEIPTWO=`echo $SOURCEIPFETCHTWO`
 
 if
-[[ -n $SOURCEIPFETCHONE ]]
+[[ -n $SOURCEIPONE ]]
 then
 echo "$DOMAINONE is located at $SOURCEIPFETCHONE"
 echo "$DOMAINONE" | tee --append $DOCTOSPITOUT &>/dev/null
 fi
 
 if
-[[ -n $SOURCEIPFETCHTWO ]]
+[[ -n $SOURCEIPTWO ]]
 then
 echo "$DOMAINTWO is located at $SOURCEIPFETCHTWO"
 echo "$DOMAINTWO" | tee --append $DOCTOSPITOUT &>/dev/null
