@@ -101,14 +101,14 @@ SOURCEIPTWO=`echo $SOURCEIPFETCHTWO`
 if
 [[ -n $SOURCEIPONE ]]
 then
-echo "$DOMAINONE is located at $SOURCEIPFETCHONE"
+echo "$DOMAINONE is located at $SOURCEIPONE"
 echo "$DOMAINONE" | tee --append $DOCTOSPITOUT &>/dev/null
 fi
 
 if
 [[ -n $SOURCEIPTWO ]]
 then
-echo "$DOMAINTWO is located at $SOURCEIPFETCHTWO"
+echo "$DOMAINTWO is located at $SOURCEIPTWO"
 echo "$DOMAINTWO" | tee --append $DOCTOSPITOUT &>/dev/null
 fi
 
