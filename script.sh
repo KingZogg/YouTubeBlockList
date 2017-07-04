@@ -13,6 +13,7 @@ GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
 DOCTOSPITOUTOLD="$REPODIR"domainlist.lastrun.txt
 ROOTSUBSLIST="$REPODIR"rootsubs.txt
+ROOTSUBSBADLIST="$REPODIR"badroots.txt
 ROOTSUBSOLDLIST="$REPODIR"rootsubs.lastrun.txt
 TEMPFILE="$REPODIR"tempfile.temp
 
@@ -118,6 +119,8 @@ if
 then
 echo "$DOMAINONE is located at $SOURCEIPONE"
 echo "$DOMAINONE" | tee --append $DOCTOSPITOUT &>/dev/null
+else 
+echo "$DOMAINONE" | tee --append $ROOTSUBSBADLIST &>/dev/null
 fi
 
 if
@@ -125,7 +128,12 @@ if
 then
 echo "$DOMAINTWO is located at $SOURCEIPTWO"
 echo "$DOMAINTWO" | tee --append $DOCTOSPITOUT &>/dev/null
+else
+echo "$DOMAINTWO" | tee --append $ROOTSUBSBADLIST &>/dev/null
 fi
+
+unset SOURCEIPONE
+unset SOURCEIPTWO
 
 ## Done with Loop
 done
