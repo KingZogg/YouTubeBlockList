@@ -34,6 +34,7 @@ SOURCEIP=`echo $SOURCEIPFETCH`
 if
 [[ -n $SOURCEIP ]]
 then
+echo "$source is located at $SOURCEIP"
 echo "Ping Test Was A Success!"
 echo "$source" | tee --append $DOCTOSPITOUTB
 else
