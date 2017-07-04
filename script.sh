@@ -67,6 +67,8 @@ for i in {1..20}
 do
 echo "r"$i"---sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
 echo "r"$i"---sn-"$source".googlevideo.com"
+echo "r"$i".sn-"$source".googlevideo.com" | tee --append $DOCTOSPITOUT &>/dev/null
+echo "r"$i".sn-"$source".googlevideo.com"
 
 ## Done with Loops
 done
