@@ -81,7 +81,7 @@ do
 DOMAINONE=r"$i"---sn-"$source".googlevideo.com
 DOMAINTWO=r"$i".sn-"$source".googlevideo.com
 
-SOURCEIPFETCH=`ping -c 1 $DOMAINONE`
+SOURCEIPFETCH=`ping -c 1 $DOMAINONE | gawk -F'[()]' '/PING/{print $2}'`
 SOURCEIP=`echo $SOURCEIPFETCH`
 
 if
@@ -97,7 +97,7 @@ fi
 unset SOURCEIPFETCH
 unset SOURCEIP
 
-SOURCEIPFETCH=`ping -c 1 $DOMAINTWO`
+SOURCEIPFETCH=`ping -c 1 $DOMAINTWO | gawk -F'[()]' '/PING/{print $2}'`
 SOURCEIP=`echo $SOURCEIPFETCH`
 
 if
