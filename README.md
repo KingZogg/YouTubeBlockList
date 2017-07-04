@@ -4,7 +4,9 @@ These domains are region specific and each device will get a different set of do
  
 Blocking video ads is kind of like Whack-A-Mole. The domain names often change, so users feedback is very helpful. 
 Also there's is no guarantee that this list will block 100% of the ads, however the results were promising.
-One should also note that the actual content is also delivered using similar domains, for example `rx---sn-gwpa-cags.googlevideo.com` Blocking this will prevent the video from playing!
+One should also note that the actual content is also delivered using similar domains, for example `rx---sn-gwpa-cags.googlevideo.com` Blocking this will prevent the video from playing!  
+Add ```https://raw.githubusercontent.com/anudeepND/youtubeadsblacklist/master/domainlist.txt``` file to adlist.
+
 
 #### **Important Note:** YouTube seems to cache ads, so please clean cache after adding or updating this list. 
 
