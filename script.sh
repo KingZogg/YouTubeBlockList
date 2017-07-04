@@ -6,7 +6,7 @@ REPONAME=youtubeadsblacklist
 REPODIR=/etc/"$REPONAME"/
 REPOOWNER=anudeepND
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
-DOCTOSPITOUT="$REPODIR"domainlistb.txt
+DOCTOSPITOUT="$REPODIR"domainlist.txt
 ROOTSUBSLIST="$REPODIR"rootsubs.txt
 TEMPFILE="$REPODIR"tempfile.temp
 
