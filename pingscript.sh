@@ -82,8 +82,8 @@ DOMAINONE=r"$i"---sn-"$source".googlevideo.com
 DOMAINTWO=r"$i".sn-"$source".googlevideo.com
 done
 
-SOURCEIPFETCHONE=`ping -c 1 $DOMAINONE | gawk -F'[()]' '/PING/{print $1}'`
-SOURCEIPFETCHTWO=`ping -c 1 $DOMAINTWO | gawk -F'[()]' '/PING/{print $1}'`
+SOURCEIPFETCHONE=`ping -c 1 $DOMAINONE | gawk -F'[()]' '/PING/{print $2}'`
+SOURCEIPFETCHTWO=`ping -c 1 $DOMAINTWO | gawk -F'[()]' '/PING/{print $2}'`
 
 if
 [[ -n $SOURCEIPFETCHONE ]]
