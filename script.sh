@@ -11,6 +11,7 @@ REPODIR=/etc/"$REPONAME"/
 REPOOWNER=anudeepND
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
+DOCTOSPITOUTOLD="$REPODIR"domainlist.lastrun.txt
 ROOTSUBSLIST="$REPODIR"rootsubs.txt
 ROOTSUBSOLDLIST="$REPODIR"rootsubs.lastrun.txt
 TEMPFILE="$REPODIR"tempfile.temp
@@ -68,12 +69,20 @@ fi
 echo "____________________________________________________________________________"
 echo ""
 
-## Remove old domains list
-CHECKME=$DOCTOSPITOUT
+## delete old domains list
 if
-ls $CHECKME &> /dev/null;
+ls $DOCTOSPITOUTOLD &> /dev/null;
 then
-rm $CHECKME
+rm $DOCTOSPITOUTOLD
+else
+:
+fi
+
+## backup old domains list
+if
+ls $DOCTOSPITOUT &> /dev/null;
+then
+mv $DOCTOSPITOUT $DOCTOSPITOUTOLD
 else
 :
 fi
@@ -124,9 +133,6 @@ echo "__________________________________________________________________________
 echo ""
 done
 
-HOWMANYLINES=$(echo -e "`wc -l $DOCTOSPITOUT | cut -d " " -f 1`")
-echo "New List Contains $HOWMANYLINES Domains."
-
 ## Remove temp file
 CHECKME=$TEMPFILE
 if
@@ -136,6 +142,12 @@ rm $CHECKME
 else
 :
 fi
+
+cat $DOCTOSPITOUTOLD $DOCTOSPITOUT >> $TEMPFILE
+mv $TEMPFILE $DOCTOSPITOUT
+
+HOWMANYLINES=$(echo -e "`wc -l $DOCTOSPITOUT | cut -d " " -f 1`")
+echo "New List Contains $HOWMANYLINES Domains."
 
 ## Pushlists?
 if
