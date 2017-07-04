@@ -12,6 +12,7 @@ REPOOWNER=anudeepND
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
 ROOTSUBSLIST="$REPODIR"rootsubs.txt
+ROOTSUBSOLDLIST="$REPODIR"rootsubs.lastrun.txt
 TEMPFILE="$REPODIR"tempfile.temp
 
 ## whiptail required
@@ -67,7 +68,7 @@ fi
 echo "____________________________________________________________________________"
 echo ""
 
-## Remove old list
+## Remove old domains list
 CHECKME=$DOCTOSPITOUT
 if
 ls $CHECKME &> /dev/null;
@@ -81,10 +82,15 @@ fi
 cat -s $ROOTSUBSLIST | sort -u | gawk '{if (++dup[$0] == 1) print $0;}' > $TEMPFILE
 mv $TEMPFILE $ROOTSUBSLIST
 
+## Let's skip the ones we've already handled
+gawk 'NR==FNR{a[$0];next} !($0 in a)' $ROOTSUBSOLDLIST $ROOTSUBSLIST > $TEMPFILE
+rm $ROOTSUBSOLDLIST
+cp $ROOTSUBSLIST $ROOTSUBSOLDLIST
+
 for source in `cat $ROOTSUBSLIST`;
 do
 
-echo "Processing $source"
+echo "Processing $TEMPFILE"
 echo ""
 
 for i in {1..20}
@@ -120,6 +126,16 @@ done
 
 HOWMANYLINES=$(echo -e "`wc -l $DOCTOSPITOUT | cut -d " " -f 1`")
 echo "New List Contains $HOWMANYLINES Domains."
+
+## Remove temp file
+CHECKME=$TEMPFILE
+if
+ls $CHECKME &> /dev/null;
+then
+rm $CHECKME
+else
+:
+fi
 
 ## Pushlists?
 if
