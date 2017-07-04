@@ -80,30 +80,26 @@ do
 
 DOMAINONE=r"$i"---sn-"$source".googlevideo.com
 DOMAINTWO=r"$i".sn-"$source".googlevideo.com
+done
 
-SOURCEIPFETCH=`ping -c 1 $DOMAINONE | gawk -F'[()]' '/PING/{print $2}'`
+SOURCEIPFETCHONE=`ping -c 1 $DOMAINONE | gawk -F'[()]' '/PING/{print $1}'`
+SOURCEIPFETCHTWO=`ping -c 1 $DOMAINTWO | gawk -F'[()]' '/PING/{print $1}'`
 
 if
-[[ -n $SOURCEIPFETCH ]]
+[[ -n $SOURCEIPFETCHONE ]]
 then
-echo "$DOMAINONE is located at $SOURCEIPFETCH"
+echo "$DOMAINONE is located at $SOURCEIPFETCHONE"
 echo "$DOMAINONE" | tee --append $DOCTOSPITOUT &>/dev/null
 fi
 
-unset SOURCEIPFETCH
-
-SOURCEIPFETCH=`ping -c 1 $DOMAINTWO | gawk -F'[()]' '/PING/{print $2}'`
-SOURCEIP=`echo $SOURCEIPFETCH`
-
 if
-[[ -n $SOURCEIP ]]
+[[ -n $SOURCEIPFETCHTWO ]]
 then
-echo "$DOMAINTWO is located at $SOURCEIPFETCH"
+echo "$DOMAINTWO is located at $SOURCEIPFETCHTWO"
 echo "$DOMAINTWO" | tee --append $DOCTOSPITOUT &>/dev/null
 fi
 
-## Done with Loops
-done
+## Done with Loop
 echo ""
 echo ""
 done
