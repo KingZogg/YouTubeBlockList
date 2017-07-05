@@ -1,6 +1,9 @@
 #!/bin/bash
 ## Pushlists
 
+## variables
+source /etc/youtubeadsblacklist/script/vars/scriptvars.var
+
 if
 (whiptail --title "anudeeptest" --yesno "Do you want to push list to github" 10 80) 
 then
