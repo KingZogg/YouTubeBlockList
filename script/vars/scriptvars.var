@@ -1,13 +1,18 @@
 REPONAME=youtubeadsblacklist
-REPODIR=/etc/"$REPONAME"/
-SCRIPTDIR="$REPODIR"scripts/
-LASTRUNDIR="$SCRIPTDIR"lastrun/
-VARSDIR="$SCRIPTDIR"vars/
 REPOOWNER=anudeepND
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
-DOCTOSPITOUT="$REPODIR"domainlist.txt
-DOCTOSPITOUTOLD="$LASTRUNDIR"domainlist.lastrun.txt
-ROOTSUBSLIST="$SCRIPTDIR"rootsubs.txt
-ROOTSUBSBADLIST="$LASTRUNDIR"badroots.txt
-ROOTSUBSOLDLIST="$LASTRUNDIR"rootsubs.lastrun.txt
-TEMPFILE="$SCRIPTDIR"tempfile.temp
+
+REPODIR=/etc/"$REPONAME"/
+  DOCTOSPITOUT="$REPODIR"domainlist.txt
+  TEMPFILE="$SCRIPTDIR"tempfile.temp
+
+  SCRIPTDIR="$REPODIR"scripts/
+    MAINSCRIPT="$SCRIPTDIR"script.sh
+  
+    LASTRUNDIR="$SCRIPTDIR"lastrun/
+      DOCTOSPITOUTOLD="$LASTRUNDIR"domainlist.lastrun.txt
+      ROOTSUBSBADLIST="$LASTRUNDIR"badroots.txt
+      ROOTSUBSOLDLIST="$LASTRUNDIR"rootsubs.lastrun.txt     
+    
+    VARSDIR="$SCRIPTDIR"vars/
+      ROOTSUBSLIST="$SCRIPTDIR"rootsubs.txt
