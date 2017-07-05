@@ -8,7 +8,6 @@ echo ""
 ## variables
 source /etc/youtubeadsblacklist/script/vars/scriptvars.var
 
-
 ## whiptail required
 WHATITIS=whiptail
 WHATPACKAGE=whiptail
@@ -34,30 +33,6 @@ echo "Installing $WHATITIS"
 apt-get install -y $WHATPACKAGE
 fi
 echo ""
-
-echo "____________________________________________________________________________"
-echo ""
-
-## Did you pull from online?
-if
-(whiptail --title "$REPONAME" --yesno "Did you git pull from github?" 10 80) 
-then
-echo "GREAT!!!!"
-else
-DIDWEPULL=true
-fi
-
-if
-[[ -n $DIDWEPULL ]]
-then
-if
-(whiptail --title "$REPONAME" --yesno "Would you like to attempt git pull now?" 10 80) 
-then
-git -C $REPODIR pull
-else
-exit
-fi
-fi
 
 echo "____________________________________________________________________________"
 echo ""
