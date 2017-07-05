@@ -1,5 +1,7 @@
 ## YouTube Video ads Blocklist
 
+Updated on: Wed 5 Jul 12:31:34 EDT 2017
+
 These domains are region specific and each device will get a different set of domains. You may get ad from other domains which are not included in the lists. **You can request additional domains via <a href="https://github.com/anudeepND/youtubeadsblacklist/issues">Issues</a> tab.**
  
 Blocking video ads is kind of like Whack-A-Mole. The domain names often change, so users feedback is very helpful. 
@@ -35,4 +37,3 @@ Make sure the traffic on port 443 is rejected. Use the below iptables rule:
  ```sudo ip6tables -A INPUT -p tcp --destination-port 443 -j REJECT``` for IPv6
  
  
-
