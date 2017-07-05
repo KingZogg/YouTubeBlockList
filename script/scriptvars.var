@@ -2,6 +2,7 @@ REPONAME=youtubeadsblacklist
 REPODIR=/etc/"$REPONAME"/
 SCRIPTDIR="$REPODIR"scripts/
 LASTRUNDIR="$SCRIPTDIR"lastrun/
+VARSDIR="$SCRIPTDIR"vars/
 REPOOWNER=anudeepND
 GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
 DOCTOSPITOUT="$REPODIR"domainlist.txt
