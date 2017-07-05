@@ -6,7 +6,7 @@ echo "__________________________________________________________________________
 echo ""
 
 ## variables
-source /etc/youtubeadsblacklist/script/scriptvars.var
+source /etc/youtubeadsblacklist/script/vars/scriptvars.var
 
 
 ## whiptail required
