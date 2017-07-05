@@ -6,7 +6,7 @@ REPODIR=/etc/"$REPONAME"/
   DOCTOSPITOUT="$REPODIR"domainlist.txt
   TEMPFILE="$SCRIPTDIR"tempfile.temp
 
-  SCRIPTDIR="$REPODIR"scripts/
+  SCRIPTDIR="$REPODIR"script/
     MAINSCRIPT="$SCRIPTDIR"script.sh
     PUSHLISTS="$SCRIPTDIR"pushlists.sh
   
