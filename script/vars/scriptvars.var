@@ -16,4 +16,4 @@ REPODIR=/etc/"$REPONAME"/
       ROOTSUBSOLDLIST="$LASTRUNDIR"rootsubs.lastrun.txt     
     
     VARSDIR="$SCRIPTDIR"vars/
-      ROOTSUBSLIST="$SCRIPTDIR"rootsubs.txt
+      ROOTSUBSLIST="$VARSDIR"rootsubs.txt
