@@ -14,4 +14,8 @@ git -C $REPODIR pull
 echo "____________________________________________________________________________"
 echo ""
 
+## Run Main Script
 bash $MAINSCRIPT
+
+## Push up
+bash $PUSHLISTS
