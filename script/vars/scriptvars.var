@@ -8,6 +8,7 @@ REPODIR=/etc/"$REPONAME"/
 
   SCRIPTDIR="$REPODIR"scripts/
     MAINSCRIPT="$SCRIPTDIR"script.sh
+    PUSHLISTS="$SCRIPTDIR"pushlists.sh
   
     LASTRUNDIR="$SCRIPTDIR"lastrun/
       DOCTOSPITOUTOLD="$LASTRUNDIR"domainlist.lastrun.txt
