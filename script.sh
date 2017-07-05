@@ -6,16 +6,8 @@ echo "__________________________________________________________________________
 echo ""
 
 ## variables
-REPONAME=youtubeadsblacklist
-REPODIR=/etc/"$REPONAME"/
-REPOOWNER=anudeepND
-GITREPOSITORYURL="github.com/"$REPOOWNER"/"$REPONAME".git"
-DOCTOSPITOUT="$REPODIR"domainlist.txt
-DOCTOSPITOUTOLD="$REPODIR"domainlist.lastrun.txt
-ROOTSUBSLIST="$REPODIR"rootsubs.txt
-ROOTSUBSBADLIST="$REPODIR"badroots.txt
-ROOTSUBSOLDLIST="$REPODIR"rootsubs.lastrun.txt
-TEMPFILE="$REPODIR"tempfile.temp
+source /etc/youtubeadsblacklist/script/scriptvars.var
+
 
 ## whiptail required
 WHATITIS=whiptail
