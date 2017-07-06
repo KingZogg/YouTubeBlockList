@@ -37,6 +37,16 @@ echo ""
 echo "____________________________________________________________________________"
 echo ""
 
+## If we want a fresh start
+if
+(whiptail --yesno "Do you want to skip rootsubs from previous runs?" 10 80) 
+then
+:
+else
+rm $ROOTSUBSOLDLIST
+rm $ROOTSUBSBADLIST
+fi
+
 ## delete old domains list
 if
 ls $DOCTOSPITOUTOLD &> /dev/null;
@@ -125,7 +135,9 @@ else
 fi
 
 touch $DOCTOSPITOUT
+touch $DOCTOSPITOUTOLD
 cat $DOCTOSPITOUTOLD $DOCTOSPITOUT >> $TEMPFILE
+rm $DOCTOSPITOUT
 mv $TEMPFILE $DOCTOSPITOUT
 
 HOWMANYLINES=$(echo -e "`wc -l $DOCTOSPITOUT | cut -d " " -f 1`")
