@@ -1,6 +1,6 @@
 ## YouTube Video ads Blocklist
 
-Updated on: Wed 5 Jul 12:48:46 EDT 2017
+Updated on: Thu 6 Jul 14:56:35 EDT 2017
 
 ___________________________________________
 
