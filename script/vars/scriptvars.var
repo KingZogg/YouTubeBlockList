@@ -14,6 +14,7 @@ REPODIR=/etc/"$REPONAME"/
   
     LASTRUNDIR="$SCRIPTDIR"lastrun/
       DOCTOSPITOUTOLD="$LASTRUNDIR"domainlist.lastrun.txt
+      HOSTSFORMALSPITOUTOLD="$LASTRUNDIR"hosts.lastrun.txt
       ROOTSUBSBADLIST="$LASTRUNDIR"badroots.txt
       ROOTSUBSOLDLIST="$LASTRUNDIR"rootsubs.lastrun.txt     
     
