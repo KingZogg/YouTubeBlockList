@@ -56,6 +56,24 @@ else
 :
 fi
 
+## delete old domains list
+if
+ls $HOSTSFORMALSPITOUTOLD &> /dev/null;
+then
+rm $HOSTSFORMALSPITOUTOLD
+else
+:
+fi
+
+## backup old domains list
+if
+ls $HOSTSFORMALSPITOUT &> /dev/null;
+then
+mv $HOSTSFORMALSPITOUT $HOSTSFORMALSPITOUTOLD
+else
+:
+fi
+
 ## backup old domains list
 if
 ls $DOCTOSPITOUT &> /dev/null;
@@ -138,7 +156,13 @@ touch $DOCTOSPITOUT
 touch $DOCTOSPITOUTOLD
 cat $DOCTOSPITOUTOLD $DOCTOSPITOUT >> $TEMPFILE
 rm $DOCTOSPITOUT
-mv $TEMPFILE $DOCTOSPITOUT
+cp $TEMPFILE $DOCTOSPITOUT
+
+## hosts format
+sed 's/^/0\.0\.0\.0 /' $TEMPFILE >> $HOSTSFORMALSPITOUT
+
+# clean
+rm $TEMPFILE
 
 HOWMANYLINES=$(echo -e "`wc -l $DOCTOSPITOUT | cut -d " " -f 1`")
 echo "New List Contains $HOWMANYLINES Domains."
